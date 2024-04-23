@@ -67,6 +67,10 @@ class Herramientas:
         return moda, maximo
 
     def __conversion_grados(self, valor, origen, destino):
+
+        condition = type(valor) != type(1) or type(1.1)
+        if condition:
+            raise TypeError(f"El valor -> {valor} <- no es del tipo correcto. Por favor ingresa {type(1)} o {type(1.1)} ")
         valor_destino = None
         if (origen == 'celsius'):
             if (destino == 'celsius'):
@@ -89,6 +93,7 @@ class Herramientas:
                 valor_destino = ((valor - 273.15) * 9 / 5) + 32
             else:
                 valor_destino = valor
+
         return valor_destino
 
     def __factorial(self, numero):
